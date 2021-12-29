@@ -17,48 +17,42 @@ module.exports = class {
 		return this;
 	}
 
-	async setup() {
-		return {
-			id: this.id,
-			token: this.token,
-			async getUser(secret) {
-				let returnValue;
-				await axios
-					.post('https://auth.redcrafter07.de/api/getToken', {
-						headers: {
-							Authorization: this.token,
-							ID: this.id,
-							token: secret
-						}
-					})
-					.then(res => (returnValue = res.data))
-					.catch(e =>
-						console.log(
-							chalk.red(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`),
-							e.response
-						)
-					);
+	async getUser(secret) {
+		let returnValue;
+		await axios
+			.post('https://auth.redcrafter07.de/api/getToken', {
+				headers: {
+					Authorization: this.token,
+					ID: this.id,
+					token: secret
+				}
+			})
+			.then(res => (returnValue = res.data))
+			.catch(e =>
+				console.log(
+					chalk.red(
+						`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+					)
+				)
+			);
 
-				return returnValue;
-			},
-			async validate() {
-				let returnValue;
-				await axios
-					.get('https://auth.redcrafter07.de/api', {
-						headers: {
-							Authorization: this.token,
-							ID: this.id
-						}
-					})
-					.then(res => (returnValue = res.data))
-					.catch(e =>
-						console.log(
-							chalk.red(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`)
-						)
-					);
+		return returnValue;
+	}
 
-				return returnValue;
-			}
-		};
+	async validate() {
+		let returnValue;
+		await axios
+			.get('https://auth.redcrafter07.de/api', {
+				headers: {
+					Authorization: this.token,
+					ID: this.id
+				}
+			})
+			.then(res => (returnValue = res.data))
+			.catch(e =>
+				console.log(chalk.red(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`))
+			);
+
+		return returnValue;
 	}
 };
