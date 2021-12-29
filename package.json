@@ -1,6 +1,6 @@
 {
 	"name": "re-auth-api",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "The API Wrapper for the Re-Auth API!",
 	"main": "index.js",
 	"scripts": {
