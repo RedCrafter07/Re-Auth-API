@@ -20,7 +20,6 @@ let client = new reAuth()
 
 //wrapper for await
 (async () => {
-  client = await client.setup();
   console.log(await client.validate()); //if returned "Authorized!", you did everything right.
 })()
 ```
