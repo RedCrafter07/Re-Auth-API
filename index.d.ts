@@ -19,8 +19,8 @@ declare class index {
     setID(id: string): this;
 
     setToken(token: string): this;
-
-    setup(): Promise<setupReturn>;
+    getUser(secret: string): User,
+    validate(): string
 }
 
 export default index;
