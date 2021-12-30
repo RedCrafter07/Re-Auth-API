@@ -3,24 +3,19 @@ interface User {
     username: string
 }
 
-interface setupReturn {
-    id: string,
-    token: string,
-    getUser(secret: string): string|User,
-    validate(): string
-}
-
 declare class index {
     token: string;
     id: string;
 
     constructor(id: string, token: string);
 
-    setID(id: string): this;
+    setID(id: string): index;
 
-    setToken(token: string): this;
+    setToken(token: string): index;
 
-    setup(): Promise<setupReturn>;
+    getUser(secret: string): Promise<string|User>
+    
+    validate(): Promise<string>
 }
 
 export = index;
