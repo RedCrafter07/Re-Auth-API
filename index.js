@@ -34,6 +34,7 @@ module.exports = class {
 						`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
 					)
 				)
+			       throw new Error(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`)
 			);
 
 		return returnValue;
@@ -51,6 +52,7 @@ module.exports = class {
 			.then(res => (returnValue = res.data))
 			.catch(e =>
 				console.log(chalk.red(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`))
+			        throw new Error(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`);
 			);
 
 		return returnValue;
