@@ -23,4 +23,4 @@ declare class index {
     setup(): Promise<setupReturn>;
 }
 
-export default index;
+export = index;
