@@ -1,21 +1,24 @@
-interface User {
+declare interface User {
+    username: string,
+    id: string
+}
+
+declare interface application {
+    name: string,
+    description: string,
     id: string,
-    username: string
+    website: string,
+    redirectURI: string
 }
 
-declare class index {
-    token: string;
-    id: string;
-
+declare class api {
     constructor(id: string, token: string);
-
-    setID(id: string): index;
-
-    setToken(token: string): index;
-    
-    getUser(secret: string): Promise<string|User>
-    
-    validate(): Promise<string>;
+    id: string;
+    token: string;
+    setToken(token: string): api;
+    setID(id: string): api;
+    getUser(secret: string): Promise<User>;
+    getInfos(id: string): Promise<application>;
 }
 
-export = index;
+export = api;
