@@ -18,6 +18,7 @@ module.exports = class {
 	}
 
 	async getUser(secret) {
+		if (!id || !token) throw new Error(`[RE-AUTH-API]: ID or Token missing!`);
 		let returnValue;
 		await axios
 			.post('https://auth.redcrafter07.de/api/getToken', {
@@ -40,21 +41,26 @@ module.exports = class {
 		return returnValue;
 	}
 
-	async validate() {
-		let returnValue;
-		await axios
-			.get('https://auth.redcrafter07.de/api', {
-				headers: {
-					Authorization: this.token,
-					ID: this.id
-				}
-			})
-			.then(res => (returnValue = res.data))
-			.catch(e =>
-				console.log(chalk.red(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`))
-			        throw new Error(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText}`);
-			);
+	async getInfos(id) {
+    let returnValue;
+    await axios
+      .get("https://auth.redcrafter07.de/api/getInfos", {
+        headers: {
+          id: id
+        },
+      })
+      .then((res) => (returnValue = res.data))
+      .catch((e) => {
+        console.log(require("util").inspect(e));
+        console.error(
+          `[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+        );
+        throw new Error(
+          `[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+        );
+      }
+      );
 
-		return returnValue;
-	}
+    return returnValue;
+  }
 };
