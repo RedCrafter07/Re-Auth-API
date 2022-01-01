@@ -24,10 +24,12 @@ let client = new reAuth()
 })()
 ```
 
-To Obtain informations about a certain application, you can use:
+To get informations about a certain application, you can use:
 ```js
 console.log(await new reAuth().getInfos("<applicationID>"))
 ```
+
+If you like, you can check our [API Documentation](https://auth.redcrafter07.de/docs).
 
 To get the secret, use:
 ```https://auth.redcrafter07.de/auth/<YOUR ID>```
