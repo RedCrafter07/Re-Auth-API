@@ -29,38 +29,39 @@ module.exports = class {
 				}
 			})
 			.then(res => (returnValue = res.data))
-			.catch(e =>
+			.catch(e => {
 				console.log(
 					chalk.red(
 						`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
 					)
-				)
-			       throw new Error(`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`)
-			);
+				);
+				throw new Error(
+					`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+				);
+			});
 
 		return returnValue;
 	}
 
 	async getInfos(id) {
-    let returnValue;
-    await axios
-      .get("https://auth.redcrafter07.de/api/getInfos", {
-        headers: {
-          id: id
-        },
-      })
-      .then((res) => (returnValue = res.data))
-      .catch((e) => {
-        console.log(require("util").inspect(e));
-        console.error(
-          `[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
-        );
-        throw new Error(
-          `[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
-        );
-      }
-      );
+		let returnValue;
+		await axios
+			.get('https://auth.redcrafter07.de/api/getInfos', {
+				headers: {
+					id: id
+				}
+			})
+			.then(res => (returnValue = res.data))
+			.catch(e => {
+				console.log(require('util').inspect(e));
+				console.error(
+					`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+				);
+				throw new Error(
+					`[RE-AUTH-API]: API Error: ${e.response.status} | ${e.response.statusText} | ${e.response.data}`
+				);
+			});
 
-    return returnValue;
-  }
+		return returnValue;
+	}
 };

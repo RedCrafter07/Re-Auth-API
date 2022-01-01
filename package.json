@@ -16,7 +16,7 @@
 	"bugs": {
 		"url": "https://github.com/RedCrafter07/Re-Auth-NPM/issues"
 	},
-	"homepage": "https://github.com/RedCrafter07/Re-Auth-NPM#readme",
+	"homepage": "https://auth.redcrafter07.de",
 	"dependencies": {
 		"axios": "^0.24.0",
 		"chalk": "^4.1.2",
