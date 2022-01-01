@@ -32,7 +32,7 @@ console.log(await new reAuth().getInfos("<applicationID>"))
 To get the secret, use:
 ```https://auth.redcrafter07.de/auth/<YOUR ID>```
 Deny: redirect to your homepage URI
-Accept: redirect to the redirectURI with ?secret=<secret>
+Accept: redirect to the redirectURI with ?secret=your secret
 
 ## License
 [MIT](https://github.com/RedCrafter07/Re-Auth-API/blob/main/LICENSE)
