@@ -20,12 +20,19 @@ let client = new reAuth()
 
 //wrapper for await
 (async () => {
-  console.log(await client.validate()); //if returned "Authorized!", you did everything right.
+  console.log(await client.getUser("<obtained secret>")); //if returned "Authorized!", you did everything right.
 })()
 ```
 
-To authorize a user, you can use this URL:
+To Obtain informations about a certain application, you can use:
+```js
+console.log(await new reAuth().getInfos("<applicationID>"))
+```
+
+To get the secret, use:
 ```https://auth.redcrafter07.de/auth/<YOUR ID>```
+Deny: redirect to your homepage URI
+Accept: redirect to the redirectURI with ?secret=<secret>
 
 ## License
 [MIT](https://github.com/RedCrafter07/Re-Auth-API/blob/main/LICENSE)
