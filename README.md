@@ -1,9 +1,6 @@
 # Re-Auth-API
 The API Wrapper for the Re-Auth API.
 
-# Important note
-Re-Auth is no longer online, but you can download the sourcecode, when it will get published. This package should completely apply, when you change a few urls.
-
 ## But wait... What is re-auth?
 A modern authentication system. Read more on our [homepage](https://auth.redcrafter07.de).
 
