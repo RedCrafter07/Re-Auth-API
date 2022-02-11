@@ -18,7 +18,7 @@ module.exports = class {
 	}
 
 	async getUser(secret) {
-		if (!id || !token) throw new Error(`[RE-AUTH-API]: ID or Token missing!`);
+		if (!this.id || !this.token) throw new Error(`[RE-AUTH-API]: ID or Token missing!`);
 		let returnValue;
 		await axios
 			.post('https://auth.redcrafter07.de/api/getToken', {
