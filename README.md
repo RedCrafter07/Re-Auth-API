@@ -1,6 +1,9 @@
 # Re-Auth-API
 The API Wrapper for the Re-Auth API.
 
+# IMPORTANT
+Re-Auth has been shut down. This package will no longer work. You can read more on our [homepage](https://auth.redcrafter07.de).
+
 ## But wait... What is re-auth?
 A modern authentication system. Read more on our [homepage](https://auth.redcrafter07.de).
 
